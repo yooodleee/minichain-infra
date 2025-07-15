@@ -1,2 +1,5 @@
 # geth chain data
 data/sepolia/
+
+__pycache__/
+*.pyc

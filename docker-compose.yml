@@ -16,3 +16,13 @@ services:
       --http.vhosts=*
       --http.api eth,net,web3
       --syncmode=snap
+
+  exporter:
+    build:
+      context: .
+      dockerfile: Dockerfile 
+    container_name: geth-exporter
+    ports:
+      - "9000:9000"
+    depends_on:
+      - geth

@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  geth:
+    image: ethereum/client-go:stable
+    container_name: geth-node
+    ports:
+      - "8545:8545"   # JSON-RPC
+      - "30303:30303" # P2P
+    volumes:
+      - ./data:/root/.ethereum
+    command: >
+      --sepolia
+      --http
+      --http.addr 0.0.0.0
+      --http.vhosts=*
+      --http.api eth,net,web3
+      --syncmode=snap
